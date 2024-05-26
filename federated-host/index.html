@@ -1,0 +1,20 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        const t1 = new Date().getTime() 
+    </script>
+    <title>Federate this!</title>
+</head>
+<body>
+    <div id="message">OH NO! If this message has not been overwritten then something went south.</div>
+    <script>
+        function setMessage(msg) { 
+            const milsec = new Date().getTime() - t1 
+            document.getElementById("message").innerHTML=milsec + "milsec<br>" + msg
+        }
+    </script>
+
+</body>
+</html>
