@@ -1,4 +1,3 @@
-// webpack.config.js
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 
 module.exports = {
@@ -10,7 +9,7 @@ module.exports = {
     },
     mode: 'development',
     devServer: {
-        static: './dist', // Updated line
+        static: './dist',
         port: 3002,
     },
     plugins: [

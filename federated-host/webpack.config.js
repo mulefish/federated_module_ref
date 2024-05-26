@@ -9,7 +9,7 @@ module.exports = {
     },
     mode: 'development',
     devServer: {
-        static: './dist', // Updated line
+        static: './dist',
         port: 3001,
     },
     plugins: [
