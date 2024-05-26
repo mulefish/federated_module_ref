@@ -1,20 +1,72 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script>
         const t1 = new Date().getTime() 
     </script>
     <title>Federate this!</title>
 </head>
+
 <body>
-    <div id="message">OH NO! If this message has not been overwritten then something went south.</div>
+    <table border="1">
+        <tr>
+            <td>
+                <div id="message">OH NO! If this message has not been overwritten then something went south.</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="message2">OH NO! If this message has not been overwritten then something went south.</div>
+            </td>
+        </tr>
+    
+    </table>
+    <hr />
+    <button onclick="countCustomFunctions()">check what modules got imported</button>
+    <br />
+    <textarea id="output" value="" rows="10" cols="50"></textarea>
     <script>
-        function setMessage(msg) { 
-            const milsec = new Date().getTime() - t1 
-            document.getElementById("message").innerHTML=milsec + "milsec<br>" + msg
+        function setMessage(msg) {
+            const milsec = new Date().getTime() - t1
+            document.getElementById("message").innerHTML = milsec + "milsec<br>" + msg
+        }
+        function setMessage2(msg) {
+            const milsec = new Date().getTime() - t1
+            document.getElementById("message2").innerHTML = milsec + "milsec<br>" + msg
+        }
+
+
+        const defaultFunctions = new Set();
+        for (const key in window) {
+            if (typeof window[key] === 'function') {
+                defaultFunctions.add(key);
+            }
+        }
+
+        // Function to count only custom functions loaded in the page
+        function countCustomFunctions() {
+            let customFunctionCount = 0;
+            const customFunctions = [];
+
+            // Iterate through the window object to find functions
+            for (const key in window) {
+                if (typeof window[key] === 'function' && !defaultFunctions.has(key)) {
+                    customFunctionCount++;
+                    customFunctions.push(key);
+                }
+            }
+
+            // Log the count of custom functions to the console
+            console.log('Total custom functions loaded in the page:', customFunctionCount);
+            console.log('Custom functions:', customFunctions);
+            
+            const t2 = new Date().getTime() - t1
+            const msg = "Notice that the func names are related to what I set them up as. \n"
+            document.getElementById("output").value = msg + JSON.stringify(customFunctions, null, 2)
         }
     </script>
-
 </body>
+
 </html>

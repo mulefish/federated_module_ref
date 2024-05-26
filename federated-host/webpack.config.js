@@ -20,6 +20,7 @@ module.exports = {
             name: 'host',
             remotes: {
                 module1: 'module1@http://localhost:3002/remoteEntry.js',
+                dinosaur: 'dinosaur@http://localhost:3003/remoteEntry.js'
             },
         }),
     ],
