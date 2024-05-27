@@ -11,10 +11,10 @@ http://localhost:3001/
 
 
 # In two different terminals: 
-cd federated-host
+cd federated-host  
 npm start 
 
-cd federated-module
+cd federated-module  
 npm start 
 
 Browser: http://localhost:3001/ 
